@@ -3,7 +3,7 @@ import tkinter
 import webbrowser
 
 from pytube import YouTube
-from pytube import Playlist
+#from pytube import Playlist
 
 
 #checks to see if videos folder exists
@@ -34,17 +34,24 @@ def getEntry():
     download(submitted)
 
 def openVideos():
-    os.startfile('videos/')
+    cwd = os.getcwd() + '/videos'
+    os.startfile(cwd)
+
+def youtube():
+    webbrowser.open('https://www.youtube.com/')
 
 entry = tkinter.Entry(width=50)
 entry.pack()
 
-submit = tkinter.Button(text="Submit", command=lambda: getEntry())
+submit = tkinter.Button(text="Submit", command=lambda: getEntry(), width=20)
 submit.pack()
 
 
-open = tkinter.Button(text="Open Videos", command=openVideos)
+open = tkinter.Button(text="Open Videos", command=openVideos, width=20)
 open.pack()
+
+youtube = tkinter.Button(text="Open Youtube", command=youtube, width=20)
+youtube.pack()
 
 
 window.mainloop()
